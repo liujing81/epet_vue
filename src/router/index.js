@@ -5,6 +5,8 @@ import Classify from '../pages/Classify/Classify.vue'
 import Home from '../pages/Home/Home.vue'
 import Profile from '../pages/Profile/Profile.vue'
 import ShopCart from '../pages/ShopCart/ShopCart.vue'
+import Type from '../pages/Classify/Type/Type.vue'
+import Brand from '../pages/Classify/Brand/Brand.vue'
 
 Vue.use(VueRouter)
 
@@ -21,6 +23,20 @@ export default new VueRouter({
     {
       path: '/classify',
       component: Classify,
+      children:[
+        {
+          path: '',
+          redirect: '/classify/type'
+        },
+        {
+          path: '/classify/type',
+          component: Type,
+        },
+        {
+          path: '/classify/brand',
+          component: Brand,
+        },
+      ]
     },
     {
       path: '/home',

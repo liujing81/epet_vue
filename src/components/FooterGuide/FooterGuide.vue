@@ -5,7 +5,7 @@
       <div class="index-a"></div>
     </router-link>
     <router-link href="javascript:;" class="guide_item"
-                 :class="{on: $route.path==='/classify'}" to="/classify">
+                 :class="{on: $route.path=='/classify'}" to="/classify">
       <div class="type-a"></div>
     </router-link>
     <router-link href="javascript:;" class="guide_item"
