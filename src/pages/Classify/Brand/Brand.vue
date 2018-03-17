@@ -18,6 +18,7 @@
         </ul>
       </div>
     </div>
+    <router-link class="btnBrand" to="/allbrand">全部</router-link>
     <!--废盒子-->
     <div class="box"></div>
   </div>
@@ -37,11 +38,25 @@
 </script>
 <style lang="stylus" rel="stylesheet/stylus" scoped>
   @import "../../../common/stylus/mixins.styl"
+div
+  position relative
   img
     display block
     vertical-align middle
   .box/*废物盒子*/
     padding-top 46px
+  .btnBrand
+    position fixed
+    width 40px
+    height 40px
+    top 550px
+    right 10px
+    background-color rgba(0,0,0,.4)
+    color #fff
+    border-radius 50%
+    text-align center
+    line-height 40px
+    font-size 12px
   .brand_wrap
     margin-bottom 10px
     background #fff

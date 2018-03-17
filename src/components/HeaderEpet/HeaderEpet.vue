@@ -23,7 +23,8 @@
     </div>
     <div class="swiper-container">
       <div class="swiper-wrapper">
-        <div class="swiper-slide" v-for="(menuItem,index) in home.menus" :key="index">
+        <div class="swiper-slide" v-for="(menuItem,index) in home.menus"
+             :key="index" :class="{on:curIndex == index}" @click="switchShow(index)">
           <a href="javascript:;">{{menuItem.menu_name}}</a>
         </div>
       </div>
@@ -38,7 +39,7 @@
   export default{
     data(){
       return {
-        isShow:false
+        curIndex:0
       }
     },
 
@@ -59,8 +60,8 @@
       ...mapState(['home']),
     },
     methods:{
-      switchShow(){
-        this.isShow = ! this.isShow
+      switchShow(index){
+        this.curIndex = index
       },
     }
   }

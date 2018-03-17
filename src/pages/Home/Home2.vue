@@ -16,96 +16,30 @@
         <div class="banner">
           <div class="swiper-container">
             <div class="swiper-wrapper">
-              <div class="swiper-slide">
+              <div class="swiper-slide" v-for="(dog_banner,index) in home.dog_banner" :key="index">
                 <a href="#">
-                  <img src="./img/slider1.jpg">
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="###">
-                  <img src="./img/slider2.jpg">
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="###">
-                  <img src="./img/slider3.jpg">
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="###">
-                  <img src="./img/slider4.jpg">
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="###">
-                  <img src="./img/slider5.jpg">
+                  <img :src="dog_banner" alt="">
                 </a>
               </div>
             </div>
-            <!-- Add Pagination -->
             <div class="swiper-pagination"></div>
           </div>
         </div>
         <div class="activity">
           <a href="javascript:;">
-            <img src="./img/activity.jpg" alt="">
+            <img :src="home.dog_img" alt="">
           </a>
         </div>
         <div class="hottype">
-          <div class="hotItem">
+          <div class="hotItem" v-for="(menulist,index) in home.menu_list" :key="index">
             <a href="javascript:;">
-              <img src="https://img1.epetbar.com/2018-03/12/17/881c6f016aa0c22104011926e51b4f47.jpg@!water" alt="">
-            </a>
-          </div>
-          <div class="hotItem">
-            <a href="javascript:;">
-              <img src="https://img1.epetbar.com/2018-03/12/17/5dc60db864d3123929f432e7757ceb96.jpg@!water" alt="">
-            </a>
-          </div>
-          <div class="hotItem">
-            <a href="javascript:;">
-              <img src="https://img1.epetbar.com/2018-03/12/17/5dc60db864d3123929f432e7757ceb96.jpg@!water" alt="">
-            </a>
-          </div>
-          <div class="hotItem">
-            <a href="javascript:;">
-              <img src="https://img1.epetbar.com/2018-03/12/17/a6cf6fd5d724bb125b40b17fba0cbe12.jpg@!water" alt="">
-            </a>
-          </div>
-          <div class="hotItem">
-            <a href="javascript:;">
-              <img src="https://img1.epetbar.com/2018-03/12/17/f8ea826966dcee6abccf2a9574b0e36e.jpg@!water" alt="">
-            </a>
-          </div>
-          <div class="hotItem">
-            <a href="javascript:;">
-              <img src="https://img1.epetbar.com/2018-03/12/20/5a6991defe3616bb1208506f5f0d78da.jpg@!water" alt="">
-            </a>
-          </div>
-          <div class="hotItem">
-            <a href="javascript:;">
-              <img src="https://img1.epetbar.com/2018-03/12/17/b799562d3f7f8ca39769dc5fd1794a4a.jpg@!water" alt="">
-            </a>
-          </div>
-          <div class="hotItem">
-            <a href="javascript:;">
-              <img src="https://img1.epetbar.com/2018-03/12/17/420a7f62887b490aa7c627dc5364178d.jpg@!water" alt="">
-            </a>
-          </div>
-          <div class="hotItem">
-            <a href="javascript:;">
-              <img src="https://img1.epetbar.com/2018-03/12/17/dfa5a7598e3ee203c05f0f03fc182edc.jpg@!water" alt="">
-            </a>
-          </div>
-          <div class="hotItem">
-            <a href="javascript:;">
-              <img src="https://img1.epetbar.com/2018-03/12/17/038add951408054bafb01498e8d98635.jpg@!water" alt="">
+              <img :src="menulist" alt="">
             </a>
           </div>
         </div>
         <div class="adv">
           <a href="javascript:;">
-            <img src="https://img2.epetbar.com/nowater/2018-03/13/09/85e2ada29e2157daeda797903cd13dd2.jpg@!water" alt="">
+            <img :src="home.miaosha" alt="">
           </a>
         </div>
         <div class="berserk">
@@ -171,7 +105,7 @@
                   </div>
                   <div class="swiper-slide">
                     <a href="#">
-                      <img src="https://img1.epetbar.com/2016-03/28/8/5180618245d1b13632b6d5d15f1f9a18.jpg?x-oss-process=style/fill&$1=300&$2=300">
+                      <img src="https://img1.epetbar.com/2016-03/25/16/cd0923d809de170f809faaf1cbb2029f.jpg?x-oss-process=style/fill&$1=300&$2=300">
                       <div class="price">
                         <span class="ft12">¥</span>
                         <span class="ft17">4.80</span>
@@ -181,7 +115,7 @@
                   </div>
                   <div class="swiper-slide">
                     <a href="#">
-                      <img src="https://img1.epetbar.com/2016-03/28/8/5180618245d1b13632b6d5d15f1f9a18.jpg?x-oss-process=style/fill&$1=300&$2=300">
+                      <img src="https://img1.epetbar.com/2016-03/24/10/560a3dc659c5e3878339494a6c4bf46e.jpg?x-oss-process=style/fill&$1=300&$2=300">
                       <div class="price">
                         <span class="ft12">¥</span>
                         <span class="ft17">4.80</span>
@@ -209,158 +143,86 @@
         </div>
         <div class="adv">
           <a href="javascript:;">
-            <img src="https://img2.epetbar.com/nowater/2018-03/12/18/f1b7fefaf2e0a3b01498658788d75fbd.jpg@!water" alt="">
+            <img :src="home.brand_power" alt="">
           </a>
         </div>
         <div class="adv">
           <a href="javascript:;">
-            <img src="https://img2.epetbar.com/nowater/2018-03/12/19/081c4aec9c8c81fa8dcb5bb9a63ddac5.gif" alt="">
-          </a>
+            <img :src="home.gif" alt=""></a>
         </div>
         <div class="adv">
           <a href="javascript:;">
-            <img src="https://img2.epetbar.com/nowater/2018-03/12/18/02cdfda794ee4cc90e0e39462e17d49d.jpg@!water" alt="">
+            <img :src="home.vip" alt="">
           </a>
         </div>
         <div class="service">
-          <a href="javascript:;">
-            <img src="https://img2.epetbar.com/nowater/2018-03/12/19/09463758eb284f5a12ab248e41f4aa11.jpg@!water" alt="">
-          </a>
-          <a href="javascript:;">
-            <img src="https://img2.epetbar.com/nowater/2018-03/12/19/fd6e6a5c56820b18eb2e0f6e359d9f59.jpg@!water" alt="">
-          </a>
-          <a href="javascript:;">
-            <img src="https://img2.epetbar.com/nowater/2018-03/12/19/3940d5339d02eebcdd5d7cc1d3a46845.jpg@!water" alt="">
-          </a>
-          <a href="javascript:;">
-            <img src="https://img2.epetbar.com/nowater/2018-03/12/19/071f8a55cf20097fb53de090e0a0dc16.jpg@!water" alt="">
+          <a href="javascript:;" v-for="(Vservice,index) in home.vip_services" :key="index">
+            <img :src="Vservice" alt="">
           </a>
         </div>
         <div class="adv">
           <a href="javascript:;">
-            <img src="https://img2.epetbar.com/nowater/2018-03/12/18/5fd369ed534f5a32ac751ff29ab90034.jpg@!water" alt="">
+            <img :src="home.dapaituan" alt="">
           </a>
         </div>
         <div class="sale">
           <div class="swiper-container">
             <div class="swiper-wrapper">
-              <div class="swiper-slide">
+              <div class="swiper-slide" v-for="(item,index) in home.dapaituan_list" :key="index">
                 <a href="#">
-                  <img src="https://img2.epetbar.com/nowater/2018-03/12/19/f122ae20ce1880988ff7e5c64440675a.jpg@!water">
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="###">
-                  <img src="https://img2.epetbar.com/nowater/2018-03/12/19/3c54559f077235436b408a6839138b4f.jpg@!water">
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="###">
-                  <img src="https://img2.epetbar.com/nowater/2018-03/12/19/9ab35e8f6f88e2adac715cd83ac5c69c.jpg@!water">
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="###">
-                  <img src="https://img2.epetbar.com/nowater/2018-03/12/19/9e4502cf22ecb6f8b97715c7fc73ed50.jpg@!water">
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="###">
-                  <img src="https://img2.epetbar.com/nowater/2018-03/12/19/3ea8f16882581307427bd3d962fc6dd0.jpg@!water">
-                </a>
-              </div>
-              <div class="swiper-slide">
-                <a href="###">
-                  <img src="https://img2.epetbar.com/nowater/2018-03/12/19/d3d4c3ee17f2a047f3eee2ec30591aac.jpg@!water">
+                  <img :src="item" alt="">
                 </a>
               </div>
             </div>
-            <!-- Add Pagination -->
             <div class="swiper-pagination"></div>
           </div>
         </div>
         <div class="adv">
           <a href="javascript:;">
-            <img src="https://img2.epetbar.com/nowater/2018-03/12/18/0d6125d9f846519e83e7354bd8638cf7.jpg@!water" alt="">
+            <img :src="home.haohuo" alt="">
           </a>
         </div>
         <div class="brand">
-          <a href="javascript:;">
-            <img src="https://img2.epetbar.com/nowater/2018-03/12/18/48f18920d1f1ee4e52039bf92da2e805.jpg@!water" alt="">
-          </a>
-          <a href="javascript:;">
-            <img src="https://img2.epetbar.com/nowater/2018-03/12/18/10a5324b7c6f1763122f2ee9cd54b5b7.jpg@!water" alt="">
-          </a>
-          <a href="javascript:;">
-            <img src="https://img2.epetbar.com/nowater/2018-03/12/18/188ceb72ed63b6ddffa093f25f517727.jpg@!water" alt="">
-          </a>
-          <a href="javascript:;">
-            <img src="https://img2.epetbar.com/nowater/2018-03/12/18/67301c12c7193d19e515c59d2bf2d15a.jpg@!water" alt="">
-          </a>
-          <a href="javascript:;">
-            <img src="https://img2.epetbar.com/nowater/2018-03/12/18/fc7b286676d1bf3fbe2d2b4b1ac633a6.jpg@!water" alt="">
-          </a>
-          <a href="javascript:;">
-            <img src="https://img2.epetbar.com/nowater/2018-03/12/18/b91027e7b664ebd165c8dc690fd9b778.jpg@!water" alt="">
-          </a>
-          <a href="javascript:;">
-            <img src="https://img2.epetbar.com/nowater/2018-03/12/18/3ea747d791b0923f775d1b23b5da9485.jpg@!water" alt="">
-          </a>
-          <a href="javascript:;">
-            <img src="https://img2.epetbar.com/nowater/2018-03/12/18/b30bab969d87ef724986ad42420432f4.jpg@!water" alt="">
+          <a href="javascript:;" v-for="(item,index) in home.haohuo_list" :key="index">
+            <img :src="item" alt="">
           </a>
         </div>
         <div class="adv">
           <a href="javascript:;">
-            <img src="https://img2.epetbar.com/nowater/2018-03/12/19/313106e05cd8b140f4bc8d298d98e87a.jpg@!water" alt="">
+            <img :src="home.zuican" alt="">
           </a>
         </div>
         <div class="adv">
           <a href="javascript:;">
-            <img src="https://img2.epetbar.com/nowater/2018-03/13/11/bac4f238ed715999f7d5bd9d4f0ab56e.jpg@!water" alt="">
+            <img :src="home.zuican_content" alt="">
           </a>
         </div>
         <div class="adv">
           <a href="javascript:;">
-            <img src="https://img2.epetbar.com/nowater/2018-03/12/19/4e129b980839446eabb5fce594f60364.jpg@!water" alt="">
+            <img :src="home.special" alt="">
           </a>
         </div>
-        <div class="trend">
-          <a class="left" href="javascript:;">
-            <img src="https://img2.epetbar.com/nowater/2018-03/12/19/62c5a1f0c1b4b535aee4a537864ecd45.jpg@!water" alt="">
+        <div class="trend" v-if="home.special_list">
+          <a class="left" href="javascript:;" >
+            <img :src="home.special_list[0]" alt="">
           </a>
           <div class="right">
             <a href="javascript:;">
-              <img src="https://img2.epetbar.com/nowater/2018-03/12/19/ca4e375ccf9992ce0e8666c256b6ef4e.jpg@!water" alt="">
+              <img :src="home.special_list[1]" alt="">
             </a>
             <a href="javascript:;">
-              <img src="https://img2.epetbar.com/nowater/2018-03/12/19/e25b9300c387beec0b28499a8f19d83e.jpg@!water" alt="">
+              <img :src="home.special_list[2]" alt="">
             </a>
           </div>
         </div>
         <div class="adv">
           <a href="javascript:;">
-            <img src="https://img2.epetbar.com/nowater/2018-03/12/19/83a8298fad417a66415c11e0acfac335.jpg@!water" alt="">
+            <img :src="home.lanmu" alt="">
           </a>
         </div>
         <div class="epetType">
-          <a href="javascript:;">
-            <img src="https://img2.epetbar.com/nowater/2018-03/12/19/c0cbc5428d12daf97c03ce5cb4b2eb41.jpg@!water" alt="">
-          </a>
-          <a href="javascript:;">
-            <img src="https://img2.epetbar.com/nowater/2018-03/12/19/fd2e96a45cc0e35e8ae09fad888707e4.jpg@!water" alt="">
-          </a>
-          <a href="javascript:;">
-            <img src="https://img2.epetbar.com/nowater/2018-03/12/19/972f41b92482a495640ad9be2793e8bf.jpg@!water" alt="">
-          </a>
-          <a href="javascript:;">
-            <img src="https://img2.epetbar.com/nowater/2018-03/12/19/819706ef8fb7e34de1c4ae76729db425.jpg@!water" alt="">
-          </a>
-          <a href="javascript:;">
-            <img src="https://img2.epetbar.com/nowater/2018-03/12/19/18442aea515fdb23ec49d837bbe3dac1.jpg@!water" alt="">
-          </a>
-          <a href="javascript:;">
-            <img src="https://img2.epetbar.com/nowater/2018-03/12/19/b621c0313bc872ad97fa63e2e431750b.jpg@!water" alt="">
+          <a href="javascript:;" v-for="(item,index) in home.lanmu_list" :key="index">
+            <img :src="item" alt="">
           </a>
         </div>
         <div class="footer">
@@ -392,38 +254,38 @@
       }
     },
     mounted(){
-      var swiper = new Swiper('.banner>.swiper-container', {
-        loop: true,
-        autoplay:true,
-        delay:1000,
-        pagination: {
-          el: '.swiper-pagination'
-        }
-      })
-
-      var swiper2 = new Swiper('.pro>.swiper-container', {
-        slidesPerView: 3.5,
-        spaceBetween: 10,
-      });
-
-      var swiper3 = new Swiper('.sale>.swiper-container', {
-        loop: true,
-        /*循环*/
-        autoplay:true,
-        delay:1000,
-        /*小圆点*/
-        pagination: {
-          el: '.swiper-pagination'
-        }
-      });
-
-      var scroll = new BScroll('.bts',{
-        click: true,
-      })
-
       this.$store.dispatch('getHomeInfo')
-
-
+    },
+    watch:{
+      home(){
+        this.$nextTick(()=>{
+          var swiper = new Swiper('.banner>.swiper-container', {
+            loop: true,
+            autoplay:true,
+            delay:1000,
+            pagination: {
+              el: '.swiper-pagination'
+            }
+          })
+          var swiper2 = new Swiper('.pro>.swiper-container', {
+            slidesPerView: 3.5,
+            spaceBetween: 10,
+          });
+          var swiper3 = new Swiper('.sale>.swiper-container', {
+            loop: true,
+            /*循环*/
+            autoplay:true,
+            delay:1000,
+            /*小圆点*/
+            pagination: {
+              el: '.swiper-pagination'
+            }
+          });
+          var scroll = new BScroll('.bts',{
+            click: true,
+          })
+        })
+      }
     },
     methods:{
       closeDL(){
@@ -636,6 +498,7 @@
                   height 100%
       /*所有品牌*/
       .brand
+        background-color #000
         display flex
         flex-wrap wrap
         a
@@ -664,6 +527,7 @@
 
       /*e宠分类*/
       .epetType
+        background-color #000
         display flex
         flex-wrap wrap
         a

@@ -3,7 +3,7 @@
  */
 import Mock from 'mockjs'
 import data from './categorys.json'
-import home from './homepage.json'
+import home from './newhomepage.json'
 
 
 Mock.mock('/classify/categorys',{code:0,data:data.categorys})

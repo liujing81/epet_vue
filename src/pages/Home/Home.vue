@@ -182,10 +182,17 @@
             <img :src="home.haohuo" alt="">
           </a>
         </div>
-        <div class="brand">
-          <a href="javascript:;" v-for="(item,index) in home.haohuo_list" :key="index">
-            <img :src="item" alt="">
-          </a>
+        <div class="brand" v-for="(list,index) in home.haohuo_list" :key="index">
+          <div class="left">
+            <a href="javascript:;" v-for="(item,index) in list.left" :key="index">
+              <img :src="item" alt="">
+            </a>
+          </div>
+          <div class="right">
+            <a href="javascript:;" v-for="(item,index) in list.right" :key="index">
+              <img :src="item" alt="">
+            </a>
+          </div>
         </div>
         <div class="adv">
           <a href="javascript:;">
@@ -246,7 +253,6 @@
   import HeaderEpet from '../../components/HeaderEpet/HeaderEpet.vue'
   import BScroll from 'better-scroll'
   import {mapState} from 'vuex'
-
   export default{
     data(){
       return {
@@ -261,10 +267,13 @@
         this.$nextTick(()=>{
           var swiper = new Swiper('.banner>.swiper-container', {
             loop: true,
-            autoplay:true,
+            autoplay:{
+              delay:2000,
+              disableOnInteraction: false,
+            },
             delay:1000,
             pagination: {
-              el: '.swiper-pagination'
+              el: '.swiper-pagination',
             }
           })
           var swiper2 = new Swiper('.pro>.swiper-container', {
@@ -274,7 +283,10 @@
           var swiper3 = new Swiper('.sale>.swiper-container', {
             loop: true,
             /*循环*/
-            autoplay:true,
+            autoplay:{
+              delay:3000,
+              disableOnInteraction: false,
+            },
             delay:1000,
             /*小圆点*/
             pagination: {
@@ -291,23 +303,22 @@
       closeDL(){
         this.isClose = false
         this.$refs.bts.style.paddingTop = 86+'px'
+        window.localStorage.setItem('DOWNLOAD_IMG',this.isClose)
       },
     },
     computed: {
       ...mapState(['home']),
     },
-
     components:{
       HeaderEpet,
     }
   }
 </script>
-<style lang="stylus" rel="stylesheet/stylus" scoped>
+<style lang="stylus" rel="stylesheet/stylus" >
   @import "../../common/stylus/mixins.styl"
   img
     display block
-  .swiper-pagination-bullet-active
-    background: #fff;
+
 .epetHome
   width 100%
   .headerWrap
@@ -361,6 +372,13 @@
                   display block
                   width 100%
                   height 100%
+          .swiper-pagination
+            .swiper-pagination-bullet-active
+              background-color rgba(255,255,255,0.8)
+              display inline-block
+              width 20px
+              height 7px
+              border-radius 35%
       /*活动图片*/
       .activity
         width 100%
@@ -496,16 +514,27 @@
                   display block
                   width 100%
                   height 100%
+          .swiper-pagination
+            .swiper-pagination-bullet-active
+              background-color rgba(255,255,255,0.8)
+              display inline-block
+              width 20px
+              height 7px
+              border-radius 35%
       /*所有品牌*/
       .brand
-        background-color #000
         display flex
-        flex-wrap wrap
-        a
+        .left
           width 50%
-          display block
-          img
-            width 100%
+          a
+            img
+              width 100%
+        .right
+          width 50%
+          a
+            img
+              width 100%
+
       /*潮品萌爪*/
       .trend
         background-color #000
@@ -551,23 +580,24 @@
           margin-top 10px
           padding-bottom 25px
           font-size 12px
-      @keyframes nnh
-        0%{
-          background-position-x: 1px;
-          background-position-y: center;
-        }
-        100% {
-          background-position: -81px;
-        }
+
   /*切换的小狗*/
+  @keyframes nnh
+    0%{
+      background-position-x: 0px;
+      background-position-y: center;
+    }
+    100% {
+      background-position: -81px;
+    }
   .switchType
     background-image url("./img/godog.png")
     background-size 80px auto
-    width: 41px;
+    width: 40px;
     height: 46px;
     position: fixed;
     bottom: 15%;
-    right: -1px;
+    right: 0px;
     z-index: 2;
     animation: nnh 2.5s steps(2) infinite
 </style>

@@ -189,6 +189,7 @@
               padding 0 5px
               width 50%
               margin-top 20px
+              margin-bottom 10px
               &.mt10
                 margin-top 10px
               a

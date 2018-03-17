@@ -5,7 +5,6 @@ import store from './store'
 
 import './mock/MockServer'
 
-console.log(store)
 new Vue({
   el: '#app',
   render:h=>h(App),

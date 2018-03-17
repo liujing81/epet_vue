@@ -7,6 +7,7 @@ import Profile from '../pages/Profile/Profile.vue'
 import ShopCart from '../pages/ShopCart/ShopCart.vue'
 import Type from '../pages/Classify/Type/Type.vue'
 import Brand from '../pages/Classify/Brand/Brand.vue'
+import AllBrand from '../pages/AllBrand/AllBrand.vue'
 
 Vue.use(VueRouter)
 
@@ -46,5 +47,9 @@ export default new VueRouter({
       path: '/shopCart',
       component: ShopCart,
     },
+    {
+      path: '/allbrand',
+      component: AllBrand,
+    }
   ]
 })
