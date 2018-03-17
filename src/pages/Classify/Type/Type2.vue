@@ -2,19 +2,19 @@
   <div class="type">
     <div class="typeLeft" ref="sortpage">
       <ul>
-        <li v-for="(category,index) in categorys" :class="{on:curIndex==index}"
+        <li v-for="(category,index) in categorys"
             :key="index" @click="switchIndex(index)" >{{category.name}}</li>
       </ul>
     </div>
     <div class="typeRight" ref="sortcontent">
       <div class="detail-list" v-if="categorys[curIndex]">
-        <div class="detail-list-food">
+        <div class="detail-list-food"  v-for="(cate,index) in categorys[curIndex].cate_list[0]" :key="index">
           <a href="javascript:;">
-            {{categorys[curIndex].cate_list[0].title}}
+            {{cate.title}}
             <img class="allGoods" src="https://static.epetbar.com/static_wap/appmall/lib/goods/cate_right_img.png" alt="">
           </a>
           <ul>
-            <li v-for="(ca,index) in categorys[curIndex].cate_list[0].list" :key="index">
+            <li v-for="(ca,index) in cate.list" :key="index">
               <a href="javascript:;">
                 <img :src="ca.photo || ca.logo" alt="">
                 <p>{{ca.name}}</p>
@@ -22,19 +22,65 @@
             </li>
           </ul>
         </div>
-        <div class="detail-list-brand" v-if="categorys[curIndex].cate_list[1]">
-          <a href="javascript:;">
-            {{categorys[curIndex].cate_list[1].title}}
-          </a>
+
+        <!--如果有两个元素，第一个元素显示的样式是detail-list-food
+            第二个元素显示的是detail-list-brand
+        -->
+
+
+       <!-- <div class="detail-list-brand">
+          <a href="javascript:;">热门品牌</a>
           <ul>
-            <li class="mt10" v-for="(ca,index) in categorys[curIndex].cate_list[1].list" :key="index">
+            <li class="mt10">
               <a href="javascript:;">
-                <img :src="ca.photo || ca.logo" alt="">
-                <p>{{ca.name}}</p>
+                <img src="https://img2.epetbar.com/nowater/brand_logo/2013-06/28/c72319096507029d8d145c6b18aabda2.jpg?x-oss-process=style/waterfall&$1=200" alt="">
+                <p>天衡宝(原雪山)</p>
+              </a>
+            </li>
+            <li class="mt10">
+              <a href="javascript:;">
+                <img src="https://img2.epetbar.com/nowater/brand_logo/2017-08/09/20/64ac5fd97740cb0fab0cfe3eac1d27f7.jpg?x-oss-process=style/waterfall&$1=200" alt="">
+                <p>ZIWI Peak</p>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:;">
+                <img src="https://img2.epetbar.com/nowater/brand_logo/2016-08/12/14/c2adde2885a24e1152d744524a1d2c67.jpg?x-oss-process=style/waterfall&$1=200" alt="">
+                <p>比瑞吉</p>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:;">
+                <img src="https://img2.epetbar.com/nowater/brand_logo/2012-12/06/b13de5404822dec7fec61a1fc4ba29c6.jpg?x-oss-process=style/waterfall&$1=200" alt="">
+                <p>牛油果</p>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:;">
+                <img src="https://img2.epetbar.com/nowater/brand_logo/2013-06/28/c72319096507029d8d145c6b18aabda2.jpg?x-oss-process=style/waterfall&$1=200" alt="">
+                <p>天衡宝(原雪山)</p>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:;">
+                <img src="https://img2.epetbar.com/nowater/brand_logo/2017-08/09/20/64ac5fd97740cb0fab0cfe3eac1d27f7.jpg?x-oss-process=style/waterfall&$1=200" alt="">
+                <p>ZIWI Peak</p>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:;">
+                <img src="https://img2.epetbar.com/nowater/brand_logo/2016-08/12/14/c2adde2885a24e1152d744524a1d2c67.jpg?x-oss-process=style/waterfall&$1=200" alt="">
+                <p>比瑞吉</p>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:;">
+                <img src="https://img2.epetbar.com/nowater/brand_logo/2012-12/06/b13de5404822dec7fec61a1fc4ba29c6.jpg?x-oss-process=style/waterfall&$1=200" alt="">
+                <p>牛油果</p>
               </a>
             </li>
           </ul>
-        </div>
+        </div>-->
       </div>
     </div>
     <!--废盒子-->
@@ -47,7 +93,8 @@
   export default{
     data(){
       return {
-          curIndex: 9,
+          curIndex: 0,
+          firstDiv:categorys[curIndex].cate_list[0],
       }
     },
     methods: {
@@ -78,6 +125,11 @@
     computed: {
       ...mapState(['categorys']),
     },
+    watch:{
+      curIndex(val, oldval){
+          this.firstDiv=this.categorys[val].cate_list[0]
+      }
+    }
 
   };
 </script>

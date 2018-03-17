@@ -21,49 +21,19 @@
         </a>
       </div>
     </div>
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide" v-for="(menuItem,index) in home.menus" :key="index">
-          <a href="javascript:;">{{menuItem.menu_name}}</a>
-        </div>
-      </div>
+    <div class="headerNav">
+      <ul class="nav">
+        <li class="on"><a href="javascript:;">首页</a></li>
+        <li><a href="javascript:;">狗狗主粮</a></li>
+        <li><a href="javascript:;">服饰城</a></li>
+        <li><a href="javascript:;">医疗保健</a></li>
+        <li><a href="javascript:;">零食玩具</a></li>
+      </ul>
     </div>
   </div>
 </template>
 <script>
-  import Swiper from 'swiper'
-  import 'swiper/dist/css/swiper.min.css'
-  import {mapState} from 'vuex'
-
-  export default{
-    data(){
-      return {
-        isShow:false
-      }
-    },
-
-    mounted(){
-      this.$store.dispatch('getHomeInfo')
-    },
-    watch:{
-      home(){
-        this.$nextTick(()=>{
-          var swiper4 = new Swiper('.header>.swiper-container', {
-            slidesPerView: 5,
-            spaceBetween: 5,
-          });
-        })
-      }
-    },
-    computed: {
-      ...mapState(['home']),
-    },
-    methods:{
-      switchShow(){
-        this.isShow = ! this.isShow
-      },
-    }
-  }
+  export default{}
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
   @import "../../common/stylus/mixins.styl"
@@ -121,23 +91,20 @@
             width 25px
             margin-left 10px
             vertical-align: middle;
-    .swiper-container
+    .headerNav
       width 100%
-      height 100%
-      .swiper-wrapper
+      .nav
         width 100%
-        height 100%
-        .swiper-slide
-          width 100%
-          height 100%
-          display block
+        white-space nowrap
+        display flex
+        li
+          flex 1
+          &.on>a
+            color #459d36
           a
             display: block;
             line-height: 36px;
             font-size: 14px;
             text-align: center;
             color: #666;
-          &.on>a
-            color #459d36
-
 </style>

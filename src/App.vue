@@ -10,7 +10,8 @@
 export default {
   components:{
     FooterGuide
-  }
+  },
+
 }
 </script>
 

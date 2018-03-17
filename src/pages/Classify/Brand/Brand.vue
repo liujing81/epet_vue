@@ -1,213 +1,18 @@
 <template>
   <div>
-    <div class="brand_wrap frist">
+    <div class="brand_wrap " v-for="(br,index) in brand" :key="index">
       <div class="title">
-        <span>—— 推荐品牌 ——</span>
+        <span>—— {{br.title}} ——</span>
       </div>
       <div class="list">
         <ul>
-          <li class="allBrand">
+          <li class="allBrand" v-for="(brr,index) in br.list" :key="index">
             <a href="javascript:;">
               <div class="imgWrap">
-                <img src="https://img2.epetbar.com/nowater/brand_logo/2016-09/28/10/3b236d1731bd91004bffcec3515e1a0a.jpg?x-oss-process=style/waterfall&amp;$1=200">
+                <img :src="brr.photo || brr.logo" alt="">
               </div>
-              <p class="name">冠能</p>
-              <p class="address">美国</p>
-            </a>
-          </li>
-          <li class="allBrand">
-            <a href="javascript:;">
-              <div class="imgWrap">
-                <img src="https://img2.epetbar.com/nowater/brand_logo/2017-08/09/20/64ac5fd97740cb0fab0cfe3eac1d27f7.jpg?x-oss-process=style/waterfall&$1=200">
-              </div>
-              <div class="smallPir">
-                <img  class="jian abs" src="//static.epetbar.com/static_web/wap/src/images/background/jian.png">
-              </div>
-              <p class="name">ZIWI Peak</p>
-              <p class="address">新西兰</p>
-            </a>
-          </li>
-          <li class="allBrand">
-            <a href="javascript:;">
-              <div class="imgWrap">
-                <img src="https://img2.epetbar.com/nowater/brand_logo/2015-10/17/12/d9e05c4a2d35c88ffee0dcec98fba6a4.jpg?x-oss-process=style/waterfall&$1=200">
-              </div>
-              <div class="smallPir">
-                <span class="gongyi abs">TA公益</span>
-              </div>
-              <p class="name">MAG</p>
-              <p class="address">英国</p>
-            </a>
-          </li>
-          <li class="allBrand">
-            <a href="javascript:;">
-              <div class="imgWrap">
-                <img src="https://img2.epetbar.com/nowater/brand_logo/2016-09/28/10/3b236d1731bd91004bffcec3515e1a0a.jpg?x-oss-process=style/waterfall&amp;$1=200">
-              </div>
-              <p class="name">冠能</p>
-              <p class="address">美国</p>
-            </a>
-          </li>
-          <li class="allBrand">
-            <a href="javascript:;">
-              <div class="imgWrap">
-                <img src="https://img2.epetbar.com/nowater/brand_logo/2017-08/09/20/64ac5fd97740cb0fab0cfe3eac1d27f7.jpg?x-oss-process=style/waterfall&$1=200">
-              </div>
-              <div class="smallPir">
-                <img  class="jian abs" src="//static.epetbar.com/static_web/wap/src/images/background/jian.png">
-              </div>
-              <p class="name">ZIWI Peak</p>
-              <p class="address">新西兰</p>
-            </a>
-          </li>
-          <li class="allBrand">
-            <a href="javascript:;">
-              <div class="imgWrap">
-                <img src="https://img2.epetbar.com/nowater/brand_logo/2015-10/17/12/d9e05c4a2d35c88ffee0dcec98fba6a4.jpg?x-oss-process=style/waterfall&$1=200">
-              </div>
-              <div class="smallPir">
-                <span class="gongyi abs">TA公益</span>
-              </div>
-              <p class="name">MAG</p>
-              <p class="address">英国</p>
-            </a>
-          </li>
-          <li class="allBrand">
-            <a href="javascript:;">
-              <div class="imgWrap">
-                <img src="https://img2.epetbar.com/nowater/brand_logo/2016-09/28/10/3b236d1731bd91004bffcec3515e1a0a.jpg?x-oss-process=style/waterfall&amp;$1=200">
-              </div>
-              <p class="name">冠能</p>
-              <p class="address">美国</p>
-            </a>
-          </li>
-          <li class="allBrand">
-            <a href="javascript:;">
-              <div class="imgWrap">
-                <img src="https://img2.epetbar.com/nowater/brand_logo/2017-08/09/20/64ac5fd97740cb0fab0cfe3eac1d27f7.jpg?x-oss-process=style/waterfall&$1=200">
-              </div>
-              <div class="smallPir">
-                <img  class="jian abs" src="//static.epetbar.com/static_web/wap/src/images/background/jian.png">
-              </div>
-              <p class="name">ZIWI Peak</p>
-              <p class="address">新西兰</p>
-            </a>
-          </li>
-          <li class="allBrand">
-            <a href="javascript:;">
-              <div class="imgWrap">
-                <img src="https://img2.epetbar.com/nowater/brand_logo/2015-10/17/12/d9e05c4a2d35c88ffee0dcec98fba6a4.jpg?x-oss-process=style/waterfall&$1=200">
-              </div>
-              <div class="smallPir">
-                <span class="gongyi abs">TA公益</span>
-              </div>
-              <p class="name">MAG</p>
-              <p class="address">英国</p>
-            </a>
-          </li>
-          <li class="allBrand">
-            <a href="javascript:;">
-              <div class="imgWrap">
-                <img src="https://img2.epetbar.com/nowater/brand_logo/2016-09/28/10/3b236d1731bd91004bffcec3515e1a0a.jpg?x-oss-process=style/waterfall&amp;$1=200">
-              </div>
-              <p class="name">冠能</p>
-              <p class="address">美国</p>
-            </a>
-          </li>
-          <li class="allBrand">
-            <a href="javascript:;">
-              <div class="imgWrap">
-                <img src="https://img2.epetbar.com/nowater/brand_logo/2017-08/09/20/64ac5fd97740cb0fab0cfe3eac1d27f7.jpg?x-oss-process=style/waterfall&$1=200">
-              </div>
-              <div class="smallPir">
-                <img  class="jian abs" src="//static.epetbar.com/static_web/wap/src/images/background/jian.png">
-              </div>
-              <p class="name">ZIWI Peak</p>
-              <p class="address">新西兰</p>
-            </a>
-          </li>
-          <li class="allBrand">
-            <a href="javascript:;">
-              <div class="imgWrap">
-                <img src="https://img2.epetbar.com/nowater/brand_logo/2015-10/17/12/d9e05c4a2d35c88ffee0dcec98fba6a4.jpg?x-oss-process=style/waterfall&$1=200">
-              </div>
-              <div class="smallPir">
-                <span class="gongyi abs">TA公益</span>
-              </div>
-              <p class="name">MAG</p>
-              <p class="address">英国</p>
-            </a>
-          </li>
-          <li class="allBrand">
-            <a href="javascript:;">
-              <div class="imgWrap">
-                <img src="https://img2.epetbar.com/nowater/brand_logo/2016-09/28/10/3b236d1731bd91004bffcec3515e1a0a.jpg?x-oss-process=style/waterfall&amp;$1=200">
-              </div>
-              <p class="name">冠能</p>
-              <p class="address">美国</p>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <div class="brand_wrap">
-      <div class="title">
-        <span>—— 推荐品牌 ——</span>
-      </div>
-      <div class="list">
-        <ul>
-          <li class="allBrand">
-            <a href="javascript:;">
-              <div class="imgWrap">
-                <img src="https://img2.epetbar.com/nowater/brand_logo/2016-09/28/10/3b236d1731bd91004bffcec3515e1a0a.jpg?x-oss-process=style/waterfall&amp;$1=200">
-              </div>
-              <p class="name">冠能</p>
-              <p class="address">美国</p>
-            </a>
-          </li>
-          <li class="allBrand">
-            <a href="javascript:;">
-              <div class="imgWrap">
-                <img src="https://img2.epetbar.com/nowater/brand_logo/2017-08/09/20/64ac5fd97740cb0fab0cfe3eac1d27f7.jpg?x-oss-process=style/waterfall&$1=200">
-              </div>
-              <div class="smallPir">
-                <img  class="jian abs" src="//static.epetbar.com/static_web/wap/src/images/background/jian.png">
-              </div>
-              <p class="name">ZIWI Peak</p>
-              <p class="address">新西兰</p>
-            </a>
-          </li>
-          <li class="allBrand">
-            <a href="javascript:;">
-              <div class="imgWrap">
-                <img src="https://img2.epetbar.com/nowater/brand_logo/2015-10/17/12/d9e05c4a2d35c88ffee0dcec98fba6a4.jpg?x-oss-process=style/waterfall&$1=200">
-              </div>
-              <div class="smallPir">
-                <span class="gongyi abs">TA公益</span>
-              </div>
-              <p class="name">MAG</p>
-              <p class="address">英国</p>
-            </a>
-          </li>
-          <li class="allBrand">
-            <a href="javascript:;">
-              <div class="imgWrap">
-                <img src="https://img2.epetbar.com/nowater/brand_logo/2016-09/28/10/3b236d1731bd91004bffcec3515e1a0a.jpg?x-oss-process=style/waterfall&amp;$1=200">
-              </div>
-              <p class="name">冠能</p>
-              <p class="address">美国</p>
-            </a>
-          </li>
-          <li class="allBrand">
-            <a href="javascript:;">
-              <div class="imgWrap">
-                <img src="https://img2.epetbar.com/nowater/brand_logo/2017-08/09/20/64ac5fd97740cb0fab0cfe3eac1d27f7.jpg?x-oss-process=style/waterfall&$1=200">
-              </div>
-              <div class="smallPir">
-                <img  class="jian abs" src="//static.epetbar.com/static_web/wap/src/images/background/jian.png">
-              </div>
-              <p class="name">ZIWI Peak</p>
-              <p class="address">新西兰</p>
+              <p class="name">{{brr.name}}</p>
+              <p class="address">{{brr.address}}</p>
             </a>
           </li>
         </ul>
@@ -218,7 +23,17 @@
   </div>
 </template>
 <script>
-  export default{}
+  import {mapState} from 'vuex'
+
+  export default{
+    mounted(){
+      this.$store.dispatch('getBrand')
+    },
+    computed: {
+      ...mapState(['brand']),
+    },
+  }
+
 </script>
 <style lang="stylus" rel="stylesheet/stylus" scoped>
   @import "../../../common/stylus/mixins.styl"
