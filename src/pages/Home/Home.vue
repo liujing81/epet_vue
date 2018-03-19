@@ -27,19 +27,19 @@
         </div>
         <div class="activity">
           <a href="javascript:;">
-            <img :src="home.dog_img" alt="">
+            <img v-lazy="home.dog_img">
           </a>
         </div>
         <div class="hottype">
           <div class="hotItem" v-for="(menulist,index) in home.menu_list" :key="index">
             <a href="javascript:;">
-              <img :src="menulist" alt="">
+              <img v-lazy="menulist">
             </a>
           </div>
         </div>
         <div class="adv">
           <a href="javascript:;">
-            <img :src="home.miaosha" alt="">
+            <img v-lazy="home.miaosha">
           </a>
         </div>
         <div class="berserk">
@@ -143,26 +143,27 @@
         </div>
         <div class="adv">
           <a href="javascript:;">
-            <img :src="home.brand_power" alt="">
+            <img v-lazy="home.brand_power">
           </a>
         </div>
         <div class="adv">
           <a href="javascript:;">
-            <img :src="home.gif" alt=""></a>
+            <img v-lazy="home.gif">
+          </a>
         </div>
         <div class="adv">
           <a href="javascript:;">
-            <img :src="home.vip" alt="">
+            <img v-lazy="home.vip">
           </a>
         </div>
         <div class="service">
           <a href="javascript:;" v-for="(Vservice,index) in home.vip_services" :key="index">
-            <img :src="Vservice" alt="">
+            <img v-lazy="Vservice">
           </a>
         </div>
         <div class="adv">
           <a href="javascript:;">
-            <img :src="home.dapaituan" alt="">
+            <img v-lazy="home.dapaituan">
           </a>
         </div>
         <div class="sale">
@@ -179,57 +180,57 @@
         </div>
         <div class="adv">
           <a href="javascript:;">
-            <img :src="home.haohuo" alt="">
+            <img v-lazy="home.haohuo">
           </a>
         </div>
         <div class="brand" v-for="(list,index) in home.haohuo_list" :key="index">
           <div class="left">
             <a href="javascript:;" v-for="(item,index) in list.left" :key="index">
-              <img :src="item" alt="">
+              <img v-lazy="item">
             </a>
           </div>
           <div class="right">
             <a href="javascript:;" v-for="(item,index) in list.right" :key="index">
-              <img :src="item" alt="">
+              <img v-lazy="item">
             </a>
           </div>
         </div>
         <div class="adv">
           <a href="javascript:;">
-            <img :src="home.zuican" alt="">
+            <img v-lazy="home.zuican">
           </a>
         </div>
         <div class="adv">
           <a href="javascript:;">
-            <img :src="home.zuican_content" alt="">
+            <img v-lazy="home.zuican_content">
           </a>
         </div>
         <div class="adv">
           <a href="javascript:;">
-            <img :src="home.special" alt="">
+            <img v-lazy="home.special">
           </a>
         </div>
         <div class="trend" v-if="home.special_list">
           <a class="left" href="javascript:;" >
-            <img :src="home.special_list[0]" alt="">
+            <img v-lazy="home.special_list[0]">
           </a>
           <div class="right">
             <a href="javascript:;">
-              <img :src="home.special_list[1]" alt="">
+              <img v-lazy="home.special_list[1]">
             </a>
             <a href="javascript:;">
-              <img :src="home.special_list[2]" alt="">
+              <img v-lazy="home.special_list[2]">
             </a>
           </div>
         </div>
         <div class="adv">
           <a href="javascript:;">
-            <img :src="home.lanmu" alt="">
+            <img v-lazy="home.lanmu">
           </a>
         </div>
         <div class="epetType">
           <a href="javascript:;" v-for="(item,index) in home.lanmu_list" :key="index">
-            <img :src="item" alt="">
+            <img v-lazy="item">
           </a>
         </div>
         <div class="footer">
@@ -271,7 +272,6 @@
               delay:2000,
               disableOnInteraction: false,
             },
-            delay:1000,
             pagination: {
               el: '.swiper-pagination',
             }
@@ -287,7 +287,6 @@
               delay:3000,
               disableOnInteraction: false,
             },
-            delay:1000,
             /*小圆点*/
             pagination: {
               el: '.swiper-pagination'
@@ -303,7 +302,6 @@
       closeDL(){
         this.isClose = false
         this.$refs.bts.style.paddingTop = 86+'px'
-        window.localStorage.setItem('DOWNLOAD_IMG',this.isClose)
       },
     },
     computed: {

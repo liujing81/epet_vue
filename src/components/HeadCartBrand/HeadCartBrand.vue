@@ -2,8 +2,8 @@
   <div>
     <div class="header-wrap">
       <div class="header">
-        <i class="iconfont icon-huitui back" ></i>
-        <span class="tit">购物车</span>
+        <i class="iconfont icon-huitui back" @click="$router.back()"></i>
+        <span class="tit">{{titName}}</span>
         <i class="iconfont icon-gengduoyingyong more" @click="switchShow"></i>
       </div>
     </div>
@@ -33,6 +33,9 @@
 </template>
 <script>
   export default{
+    props:{
+      titName:String
+    },
     data(){
       return {
         isShow:false

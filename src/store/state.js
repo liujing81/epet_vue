@@ -5,4 +5,6 @@ export default {
   categorys:[],
   brand:[],
   home:{},
+  allBrand:{},
+  userInfo:{}
 }

@@ -16,7 +16,7 @@
           <ul>
             <li v-for="(ca,index) in categorys[curIndex].cate_list[0].list" :key="index">
               <a href="javascript:;">
-                <img :src="ca.photo || ca.logo" alt="">
+                <img v-lazy="ca.photo || ca.logo">
                 <p>{{ca.name}}</p>
               </a>
             </li>
@@ -29,7 +29,7 @@
           <ul>
             <li class="mt10" v-for="(ca,index) in categorys[curIndex].cate_list[1].list" :key="index">
               <a href="javascript:;">
-                <img :src="ca.photo || ca.logo" alt="">
+                <img v-lazy="ca.photo || ca.logo">
                 <p>{{ca.name}}</p>
               </a>
             </li>

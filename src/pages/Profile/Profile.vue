@@ -3,7 +3,7 @@
     <div class="header-bg">
       <div class="header-wrap">
         <div class="header">
-          <i class="iconfont icon-huitui back"></i>
+          <i class="iconfont icon-huitui back" @click="$router.back()"></i>
           <span class="register">注册</span>
         </div>
       </div>
@@ -22,7 +22,7 @@
     </div>
     <div class="content">
       <div class="login">
-        <form action="#" @submit.prevent="login">
+        <form action="#">
           <div class="pwdLogin" v-if="loginWay">
             <div>
               <i class="iconfont icon-denglu"></i>
@@ -41,16 +41,17 @@
             </div>
             <div>
               <i class="iconfont icon-mima"></i>
-              <input type="text" placeholder="请输入图片内容" v-model="imgCode">
+              <input type="text" placeholder="请输入图片内容" v-model="imgCode" maxlength="4">
               <span>
-                <img ref="captcha" src="http://localhost:3000/captcha" alt="captcha" @click="getCaptchaCode" style="height: 40px ">
-                <!--<img src="./img/yzm.png">-->
+                <img ref="captcha" src="http://localhost:3000/captcha" @click="getCaptchaCode" style="height: 40px ">
               </span>
             </div>
             <div>
               <i class="iconfont icon-mima"></i>
-              <input type="text" class="dttext" placeholder="动态密码" v-model="changeCode">
-              <a href="javascript:;">获取动态密码</a>
+              <input type="text" placeholder="动态密码" v-model="changeCode" maxlength="6">
+              <button href="javascript:;" :class="{right_phone:rightPhone}"
+                 v-if="computedTime==0" @click.prevent="getCode" ref="clickCode">获取动态密码</button>
+              <button href="javascript:;" disabled v-if="computedTime>0">{{computedTime}}s</button>
             </div>
           </div>
         </form>
@@ -82,6 +83,7 @@
   </div>
 </template>
 <script>
+  import {reqMsgCode,smsLogin} from '../../api'
   import AlertTip from '../../components/AlertTip/AlertTip.vue'
    export default{
     data(){
@@ -96,58 +98,87 @@
         changeCode:'',
         alertShow:false, //提示框是否显示
         alertText: '', // 提示框文本
+        computedTime:0, //按钮点击倒计时
       }
     },
     methods:{
-      // 获取图形验证码
       getCaptchaCode() {
         this.$refs.captcha.src = 'http://localhost:3000/captcha?time='+new Date()
       },
       setLoginWay (loginWay) {
         this.loginWay = loginWay
       },
+      async getCode(){
+        if(this.rightPhone){//输入合法手机号
+          this.computedTime = 60
+          const IntervalId = setInterval(()=>{
+            this.computedTime--
+            //发送ajxa请求短信验证码
+            if(this.computedTime==0){
+              clearInterval(IntervalId)
+            }
+          },1000)
+          //异步发送获取手机号的验证码
+          const result = await reqMsgCode({phone:this.phone})
+          if(result.code === 1){   // 请求发送失败
+            this.alertShow = true
+            this.alertText = result.msg
+          }
+        }
+      },
+
       async login(){
         let result
-        if(this.loginWay){
+        if(this.loginWay){//用户名
           const {name,password} = this
-          if(!name){
+          if(!/^[a-zA-Z0-9_-]{4,11}$/.test(name)){
             this.alertShow = true
             this.alertText = '请输入正确的用户名'
             return
-          }else if(!password){
+          }else if(!/^[0-9a-zA-Z]{4,8}$/.test(password)){
             this.alertShow = true
             this.alertText = '请输入正确的密码'
             return
           }
-          // 提交登陆请求
-          alert(1)
-          // 处理返回
+          console.log(1111)
         } else {// 手机登陆
-          const {phone,imgCode,changeCode} = this
+          const {rightPhone,changeCode,imgCode} = this
           // 表单验证
-          if(!phone) { // 用户名
+          if(!rightPhone) { // 手机号
             this.alertShow = true
-            this.alertText = '请输入用户名'
+            this.alertText = '请输入正确手机号'
             return
-          } else if(!imgCode) { // 密码
+          } else if(!imgCode) { // 图片验证码
             this.alertShow = true
-            this.alertText = '请输入密码'
+            this.alertText = '请输入图片验证码'
             return
-          } else if(!changeCode) { // 图片验证码
+          }else if(!changeCode) { // 短信验证码
             this.alertShow = true
-            this.alertText = '请输入验证码'
+            this.alertText = '请输入真确的短信码'
             return
           }
-          // 提交登陆请求
-          alert(2)
-          // 处理返回
+        }
+        // 如果上述内容基本输入都没有问题，发送ajax请求进入后台验证
+        result = await smsLogin({phone:this.phone,code:this.changeCode})
+        if(result.code ===1){
+          this.alertShow = true
+          this.alertText = result.msg
+        }else{
+          //发送成功保存用户信息到state中
+          const userInfo = result.data
+          // 回退到上一级
+          this.$router.back()
         }
       },
-      // 关闭提示框
       closeTip () {
         this.alertShow = false
       }
     },
+    computed:{
+      rightPhone(){
+        return /^1(3|4|5|7|8)\d{9}$/.test(this.phone)
+      }
+     },
     components:{
       AlertTip,
     }
@@ -249,10 +280,10 @@
           img
             display block
             width 85px
-        a
+        button
           background: #fff;
-          color: #ff4259;
-          border: 1px solid #eb4c33;
+          color: #999;
+          border: 1px solid #666;
           position: absolute;
           right: 0;
           top: 8px;
@@ -261,6 +292,9 @@
           text-align: center;
           padding: 8px 0;
           font-size 12px
+          &.right_phone
+            color: #2ec975;
+            border: 1px solid #249657;
   p
     padding 0 24px
     overflow hidden

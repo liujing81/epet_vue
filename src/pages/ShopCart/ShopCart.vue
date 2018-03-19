@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HeadCartBrand/>
+    <HeadCartBrand titName="购物车"/>
     <div class="shopCart">
       <i class="iconfont icon-gouwuche cart"></i>
       <p class="text">购物车是空的</p>

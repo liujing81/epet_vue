@@ -9,7 +9,7 @@
           <li class="allBrand" v-for="(brr,index) in br.list" :key="index">
             <a href="javascript:;">
               <div class="imgWrap">
-                <img :src="brr.photo || brr.logo" alt="">
+                <img v-lazy="brr.photo || brr.logo">
               </div>
               <p class="name">{{brr.name}}</p>
               <p class="address">{{brr.address}}</p>
